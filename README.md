@@ -1,5 +1,9 @@
-# docker
 # Raspberry Pi Setup
+
+# Image Download
+
+
+Raspbian Buster Lite https://www.raspberrypi.org/downloads/raspbian/
 
 # Basic Setup
 
