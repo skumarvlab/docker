@@ -87,6 +87,7 @@ Raspbian Buster Lite https://www.raspberrypi.org/downloads/raspbian/
 
 	1. kubectl apply -f https://raw.githubusercontent.com/skumarvlab/docker/master/alpine/traefik-k8s.yaml
 	2. kubectl label node pi01 nginx-controller=traefik
+	3. kubectl apply -f https://raw.githubusercontent.com/skumarvlab/docker/master/kubernetes-dashboard-arm-ingress.yaml
 
 # Build Image:
 
