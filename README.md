@@ -77,7 +77,16 @@ Raspbian Buster Lite https://www.raspberrypi.org/downloads/raspbian/
 
 	DashBoard Setup
 
-	kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/72832429656c74c4c568ad5b7163fa9716c3e0ec/src/deploy/recommended/kubernetes-dashboard-arm.yaml
+	1. kubectl create -f https://raw.githubusercontent.com/skumarvlab/docker/master/kubernetes-dashboard-arm.yaml
+	2. kubectl create serviceaccount dashboard -n default
+	3. kubectl create clusterrolebinding dashboard-admin -n default \
+  --clusterrole=cluster-admin \
+  --serviceaccount=default:dashboard
+
+	Traefik Setup
+
+	1. kubectl apply -f https://raw.githubusercontent.com/skumarvlab/docker/master/alpine/traefik-k8s.yaml
+	2. kubectl label node pi01 nginx-controller=traefik
 
 # Build Image:
 
