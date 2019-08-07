@@ -1,5 +1,9 @@
-# docker
 # Raspberry Pi Setup
+
+# Image Download
+
+
+Raspbian Buster Lite https://www.raspberrypi.org/downloads/raspbian/
 
 # Basic Setup
 
@@ -68,6 +72,7 @@
 	sudo kubeadm join --token <token> <IPAddress>:6443 --discovery-token-ca-cert-hash <Hash>
 	
 	Help: Find join command
+	
 	openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt | openssl rsa -pubin -outform der 2>/dev/null | openssl dgst -sha256 -hex | sed 's/^.* //' 
 
 	DashBoard Setup
