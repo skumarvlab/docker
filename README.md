@@ -33,8 +33,8 @@
 
 # Build Image:
 
-1. docker build . -t skumarvlab/dotnetcore:0.1-hello-console-arm -f Dockerfile.HelloConsole.arm
-2. docker push skumarvlab/dotnetcore:0.1-hello-console-arm
+1. docker build . -t skumarvlab/alpine:latest-alpine-arm32v7 -f Dockerfile.alpine.arm32v7
+2. docker push skumarvlab/alpine:latest-alpine-arm32v7
 
 # Run Image:
 

@@ -1,4 +1,4 @@
-FROM skumarvlab/alpine:0.1-alpine-arm
+FROM skumarvlab/alpine:latest-alpine-arm32v7
 
 RUN apk add --no-cache python && \
     python -m ensurepip && \
