@@ -33,8 +33,10 @@
 
 # Build Image:
 
-1. docker build . -t skumarvlab/alpine:latest-alpine-arm32v7 -f Dockerfile.alpine.arm32v7
-2. docker push skumarvlab/alpine:latest-alpine-arm32v7
+1. git clone https://github.com/skumarvlab/docker.git
+2. docker login docker.io
+3. set DOCKER_HUB="skumarvlab"
+
 
 # Run Image:
 
