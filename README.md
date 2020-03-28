@@ -35,12 +35,15 @@
 
 1. git clone https://github.com/skumarvlab/docker.git
 2. docker login docker.io
-3. set DOCKER_HUB="skumarvlab"
+3. set DOCKER_HUB=skumarvlab
+4. alpine.arm32v7:latest
+    docker build . -t %DOCKER_HUB%/alpine.arm32v7:latest -f  ./alpine/arm32v7/latest
+    docker push %DOCKER_HUB%/alpine.arm32v7:latest
+5. alpine.arm32v7:python2
+    docker build . -t %DOCKER_HUB%/alpine.arm32v7:python2 -f  ./alpine/arm32v7/python2
+    docker push %DOCKER_HUB%/alpine.arm32v7:python2
+6. alpine.arm32v7:python3
+    docker build . -t %DOCKER_HUB%/alpine.arm32v7:python3 -f  ./alpine/arm32v7/python3
+    docker push %DOCKER_HUB%/alpine.arm32v7:python3
 
 
-# Run Image:
-
-1. docker run  --name hellowebarm -ti -p 80:80 skumarvlab/dotnetcore:0.1-hello-web-arm
-2. docker service  create --name hellowebarm --publish 80:80 skumarvlab/dotnetcore:0.1-hello-web-arm
-3. docker service scale hellowebarm=5
-4. docker service ps hellowebarm
