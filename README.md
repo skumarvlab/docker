@@ -39,11 +39,23 @@
 4. alpine.arm32v7:latest
     docker build . -t %DOCKER_HUB%/alpine.arm32v7:latest -f  ./alpine/arm32v7/latest
     docker push %DOCKER_HUB%/alpine.arm32v7:latest
-5. alpine.arm32v7:python2
+6. alpine.arm32v7:python2
     docker build . -t %DOCKER_HUB%/alpine.arm32v7:python2 -f  ./alpine/arm32v7/python2
     docker push %DOCKER_HUB%/alpine.arm32v7:python2
 6. alpine.arm32v7:python3
     docker build . -t %DOCKER_HUB%/alpine.arm32v7:python3 -f  ./alpine/arm32v7/python3
     docker push %DOCKER_HUB%/alpine.arm32v7:python3
+
+# Local Docker Comunity 
+1. set DOCKER_HUB=skumarvlab
+2. alpine:latest
+    docker build . -t %DOCKER_HUB%/alpine:latest -f  ./alpine/latest
+    docker run -it --name latest %DOCKER_HUB%/alpine:latest
+4. alpine:python2
+    docker build . -t %DOCKER_HUB%/alpine:python2 -f  ./alpine/python2
+    docker run -it --name python2 %DOCKER_HUB%/alpine:python2
+5. alpine:python3
+    docker build . -t %DOCKER_HUB%/alpine:python3 -f  ./alpine/python3
+    docker run -it --name python3 %DOCKER_HUB%/alpine:python3
 
 
