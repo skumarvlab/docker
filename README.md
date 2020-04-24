@@ -35,27 +35,43 @@
 
 1. git clone https://github.com/skumarvlab/docker.git
 2. docker login docker.io
-3. set DOCKER_HUB=skumarvlab
-4. alpine.arm32v7:latest
-    docker build . -t %DOCKER_HUB%/alpine.arm32v7:latest -f  ./alpine/arm32v7/latest
-    docker push %DOCKER_HUB%/alpine.arm32v7:latest
-6. alpine.arm32v7:python2
-    docker build . -t %DOCKER_HUB%/alpine.arm32v7:python2 -f  ./alpine/arm32v7/python2
-    docker push %DOCKER_HUB%/alpine.arm32v7:python2
-6. alpine.arm32v7:python3
-    docker build . -t %DOCKER_HUB%/alpine.arm32v7:python3 -f  ./alpine/arm32v7/python3
-    docker push %DOCKER_HUB%/alpine.arm32v7:python3
+3. alpine.arm32v7:latest-builder
+    docker build . -t skumarvlab/alpine.arm32v7:latest-builder -f  ./alpine/latest-builder.arm32v7.dockerfile
+    docker run -it --name latest-builder skumarvlab/alpine.arm32v7:latest-builder
+2. alpine:latest-prod
+    docker build . -t skumarvlab/alpine.arm32v7:latest-prod -f  ./alpine/latest-prod.arm32v7.dockerfile
+    docker run -it --name latest-prod skumarvlab/alpine.arm32v7:latest-prod
+3. alpine:python-builder
+    docker build . -t skumarvlab/alpine.arm32v7:python-builder -f  ./alpine/python-builder.arm32v7.dockerfile
+    docker run -it --name python-builder skumarvlab/alpine.arm32v7:python-builder
+4. alpine:python-prod
+    docker build . -t skumarvlab/alpine.arm32v7:python-prod -f  ./alpine/python-prod.arm32v7.dockerfile
+    docker run -it --name python-prod skumarvlab/alpine.arm32v7:python-prod
+5. alpine:nginx-prod
+    docker build . -t skumarvlab/alpine.arm32v7:nginx-prod -f  ./alpine/nginx-prod.arm32v7.dockerfile
+    docker run -d --name nginx-prod -p 5000:80 -p 6000:443 skumarvlab/alpine.arm32v7:nginx-prod
+6. alpine:redis-prod
+    docker build . -t skumarvlab/alpine.arm32v7:redis-prod -f  ./alpine/redis-prod.arm32v7.dockerfile
+    docker run -d --name redis-prod -p 5001:6379 skumarvlab/alpine.arm32v7:redis-prod
 
-# Local Docker Comunity 
-1. set DOCKER_HUB=skumarvlab
-2. alpine:latest
-    docker build . -t %DOCKER_HUB%/alpine:latest -f  ./alpine/latest
-    docker run -it --name latest %DOCKER_HUB%/alpine:latest
-4. alpine:python2
-    docker build . -t %DOCKER_HUB%/alpine:python2 -f  ./alpine/python2
-    docker run -it --name python2 %DOCKER_HUB%/alpine:python2
-5. alpine:python3
-    docker build . -t %DOCKER_HUB%/alpine:python3 -f  ./alpine/python3
-    docker run -it --name python3 %DOCKER_HUB%/alpine:python3
+# Local Docker
+1. alpine:latest-builder
+    docker build . -t skumarvlab/alpine:latest-builder -f  ./alpine/latest-builder.pc.dockerfile
+    docker run -it --name latest-builder skumarvlab/alpine:latest-builder
+2. alpine:latest-prod
+    docker build . -t skumarvlab/alpine:latest-prod -f  ./alpine/latest-prod.pc.dockerfile
+    docker run -it --name latest-prod skumarvlab/alpine:latest-prod
+3. alpine:python-builder
+    docker build . -t skumarvlab/alpine:python-builder -f  ./alpine/python-builder.pc.dockerfile
+    docker run -it --name python-builder skumarvlab/alpine:python-builder
+4. alpine:python-prod
+    docker build . -t skumarvlab/alpine:python-prod -f  ./alpine/python-prod.pc.dockerfile
+    docker run -it --name python-prod skumarvlab/alpine:python-prod
+5. alpine:nginx-prod
+    docker build . -t skumarvlab/alpine:nginx-prod -f  ./alpine/nginx-prod.pc.dockerfile
+    docker run -d --name nginx-prod -p 5000:80 -p 6000:443 skumarvlab/alpine:nginx-prod
+6. alpine:redis-prod
+    docker build . -t skumarvlab/alpine:redis-prod -f  ./alpine/redis-prod.pc.dockerfile
+    docker run -d --name redis-prod -p 5001:6379 skumarvlab/alpine:redis-prod
 
 
