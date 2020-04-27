@@ -30,48 +30,41 @@
 	docker swarm join --token <token> <IPAddress>:2377
 
 
-
-# Build Image:
-
 1. git clone https://github.com/skumarvlab/docker.git
 2. docker login docker.io
-3. alpine.arm32v7:latest-builder
-    docker build . -t skumarvlab/alpine.arm32v7:latest-builder -f  ./alpine/latest-builder.arm32v7.dockerfile
-    docker run -it --name latest-builder skumarvlab/alpine.arm32v7:latest-builder
-2. alpine:latest-prod
-    docker build . -t skumarvlab/alpine.arm32v7:latest-prod -f  ./alpine/latest-prod.arm32v7.dockerfile
-    docker run -it --name latest-prod skumarvlab/alpine.arm32v7:latest-prod
-3. alpine:python-builder
-    docker build . -t skumarvlab/alpine.arm32v7:python-builder -f  ./alpine/python-builder.arm32v7.dockerfile
-    docker run -it --name python-builder skumarvlab/alpine.arm32v7:python-builder
-4. alpine:python-prod
-    docker build . -t skumarvlab/alpine.arm32v7:python-prod -f  ./alpine/python-prod.arm32v7.dockerfile
-    docker run -it --name python-prod skumarvlab/alpine.arm32v7:python-prod
-5. alpine:nginx-prod
-    docker build . -t skumarvlab/alpine.arm32v7:nginx-prod -f  ./alpine/nginx-prod.arm32v7.dockerfile
-    docker run -d --name nginx-prod -p 5000:80 -p 6000:443 skumarvlab/alpine.arm32v7:nginx-prod
-6. alpine:redis-prod
-    docker build . -t skumarvlab/alpine.arm32v7:redis-prod -f  ./alpine/redis-prod.arm32v7.dockerfile
-    docker run -d --name redis-prod -p 5001:6379 skumarvlab/alpine.arm32v7:redis-prod
 
-# Local Docker
-1. alpine:latest-builder
-    docker build . -t skumarvlab/alpine:latest-builder -f  ./alpine/latest-builder.pc.dockerfile
-    docker run -it --name latest-builder skumarvlab/alpine:latest-builder
-2. alpine:latest-prod
+# PI Image:
+1. alpine:latest-prod
+    docker build . -t skumarvlab/alpine.arm32v7:latest-prod -f  ./alpine/latest-prod.arm32v7.dockerfile
+    docker run -d --name latest-prod skumarvlab/alpine.arm32v7:latest-prod
+2. alpine:python-prod
+    docker build . -t skumarvlab/alpine.arm32v7:python-prod -f  ./alpine/python-prod.arm32v7.dockerfile
+    docker run -d --name python-prod skumarvlab/alpine.arm32v7:python-prod
+3. alpine:uwsgi-python-prod
+    docker build . -t skumarvlab/alpine.arm32v7:uwsgi-python-prod -f  ./alpine/uwsgi-python-prod.pc.dockerfile
+    docker run -d --name uwsgi-python-prod -p 5001:80 skumarvlab/alpine.arm32v7:uwsgi-python-prod
+4. alpine:nginx-prod
+    docker build . -t skumarvlab/alpine.arm32v7:nginx-prod -f  ./alpine/nginx-prod.arm32v7.dockerfile
+    docker run -d --name nginx-prod -p 5002:80 -p 6000:443 skumarvlab/alpine.arm32v7:nginx-prod
+5. alpine:redis-prod
+    docker build . -t skumarvlab/alpine.arm32v7:redis-prod -f  ./alpine/redis-prod.arm32v7.dockerfile
+    docker run -d --name redis-prod -p 5003:6379 skumarvlab/alpine.arm32v7:redis-prod
+
+# PC Image:
+1. alpine:latest-prod
     docker build . -t skumarvlab/alpine:latest-prod -f  ./alpine/latest-prod.pc.dockerfile
     docker run -it --name latest-prod skumarvlab/alpine:latest-prod
-3. alpine:python-builder
-    docker build . -t skumarvlab/alpine:python-builder -f  ./alpine/python-builder.pc.dockerfile
-    docker run -it --name python-builder skumarvlab/alpine:python-builder
-4. alpine:python-prod
+2. alpine:python-prod
     docker build . -t skumarvlab/alpine:python-prod -f  ./alpine/python-prod.pc.dockerfile
     docker run -it --name python-prod skumarvlab/alpine:python-prod
+3. alpine:uwsgi-python-prod
+    docker build . -t skumarvlab/alpine:uwsgi-python-prod -f  ./alpine/uwsgi-python-prod.pc.dockerfile
+    docker run -it --name uwsgi-python-prod -p 5001:80 skumarvlab/alpine:uwsgi-python-prod
+4. alpine:redis-prod
+    docker build . -t skumarvlab/alpine:redis-prod -f  ./alpine/redis-prod.pc.dockerfile
+    docker run -d --name redis-prod -p 5002:6379 skumarvlab/alpine:redis-prod
 5. alpine:nginx-prod
     docker build . -t skumarvlab/alpine:nginx-prod -f  ./alpine/nginx-prod.pc.dockerfile
-    docker run -d --name nginx-prod -p 5000:80 -p 6000:443 skumarvlab/alpine:nginx-prod
-6. alpine:redis-prod
-    docker build . -t skumarvlab/alpine:redis-prod -f  ./alpine/redis-prod.pc.dockerfile
-    docker run -d --name redis-prod -p 5001:6379 skumarvlab/alpine:redis-prod
+    docker run -d --name nginx-prod -p 5003:80 -p 6000:443 skumarvlab/alpine:nginx-prod
 
 
